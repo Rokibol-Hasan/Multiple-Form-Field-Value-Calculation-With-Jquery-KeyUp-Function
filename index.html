@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Input Form</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
+    <script src="jquery.min.js"></script>
+  </head>
+  <body>
+    <section class="form mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <div class="mb-1">
+              <label for="qty" class="form-label">Quantity As Input</label>
+              <input type="text" name="qty" id="qty" class="form-control input " placeholder="Qty"/>
+            </div>
+            <div class="mb-1">
+              <label for="cqty" class="form-label">Converted Quantity (Calculated As 12 Per Qty)</label>
+              <input type="text" name="cqty" id="cqty" class="form-control" placeholder="Coverted Qty(as 12 per qty)"/>
+            </div>
+            <div class="mb-1">
+              <label for="supp" class="form-label ">Supplier Price As Input</label>
+              <input type="text"name="supp" id="supp" class="form-control" placeholder="Converted Price"/>
+            </div>
+            <div class="mb-1">
+              <label for="cp" class="form-label">Converted Individual Price</label>
+              <input type="text"name="cp" id="cp" class="form-control" placeholder="Individual Price"/>
+            </div> 
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+   $(document).ready(function(){
+    $(".input,#supp").keyup(function(){
+        var qty = $("#qty").val();
+        var supp = $("#supp").val();
+        var cqty = $("#cqty").val();
+        $("#cqty").val(qty*12);
+        $("#cp").val(supp/cqty);
+   });
+});
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
